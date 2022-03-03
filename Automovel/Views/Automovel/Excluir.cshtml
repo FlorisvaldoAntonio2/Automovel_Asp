@@ -1,0 +1,17 @@
+﻿@model AutomovelModel;
+
+@{
+    ViewBag.Subtitulo = "Excluir";
+}
+
+<h1 class="text-primary">@ViewBag.Subtitulo</h1>
+<hr>
+<h4>Deseja realmente excluir o veiculo <span class="text-danger">@Model.Modelo?</span></h4>
+
+<form asp-action="Excluir" method="post">
+    <input type="hidden" asp-for="@Model.IdAutomovel">
+    
+    <a asp-action="Index" class="btn btn-success">Não</a>
+    <button class="btn btn-danger" type="submit">Sim</button>
+    
+</form>

@@ -1,0 +1,21 @@
+﻿@model MontadoraModel;
+
+@{
+    ViewBag.Subtitulo = "Cadastro Montadora";
+}
+
+<div class="text-center">
+    <h1>Cadastro Montadora</h1>
+
+
+    <form asp-action="Cadastro" asp-controller="Montadora" method="post">
+        <input type="hidden" asp-for="@Model.IdMontadora" />
+
+        <label asp-for="@Model.Name">Nome Montadora:</label>
+        <input asp-for="@Model.Name" />
+
+        <span asp-validation-for="@Model.Name" class="text-danger"></span>  
+
+        <input type="submit" value="Cadastrar" />
+    </form>
+</div>

@@ -1,0 +1,80 @@
+﻿@model AutomovelViewModel;
+
+@{
+    ViewBag.Subtitulo = "Cadastro Automovel";
+}
+
+<div class="text-center">
+    <h1>Cadastro Montadora</h1>
+
+    <partial name="_Mensagem"></partial>
+
+
+    <form enctype="multipart/form-data" asp-action="Cadastro" asp-controller="Automovel" method="post">
+        
+        <input type="hidden" asp-for="@Model.IdAutomovel" />
+
+        <div class="row mt-5 mb-1">
+            <div class="col-sm-12 col-lg-6">
+
+                <label class="form-label" asp-for="@Model.Modelo">Modelo:</label>
+                <input class="form-control" asp-for="@Model.Modelo" />
+
+                <span asp-validation-for="@Model.Modelo" class="text-danger"></span>  
+
+            </div>
+
+            <div class="col-sm-12 col-lg-6">
+
+                <label class="form-label" asp-for="@Model.Cor">Cor:</label>
+                <input class="form-control" asp-for="@Model.Cor" />
+
+                <span asp-validation-for="@Model.Cor" class="text-danger"></span> 
+
+            </div>
+        </div>
+
+        <div class="row mb-1">
+               <div class="col-sm-6 col-lg-2">
+                    <label asp-for="@Model.Portas">N° portas:</label>
+                    <input class="form-control" asp-for="@Model.Portas" />
+
+                    <span asp-validation-for="@Model.Portas" class="text-danger"></span> 
+               </div>
+               <div class="col-sm-6 col-lg-3">
+                    <label asp-for="@Model.Ano">Ano fabricação:</label>
+                    <input class="form-control" asp-for="@Model.Ano" />
+
+                    <span asp-validation-for="@Model.Ano" class="text-danger"></span>
+               </div>
+               <div class="col-sm-6 col-lg-3">
+                    <label asp-for="@Model.Quilometragem">Quilometragem atual:</label>
+                    <input class="form-control" asp-for="@Model.Quilometragem" />
+
+                    <span asp-validation-for="@Model.Quilometragem" class="text-danger"></span>
+               </div>
+               <div class="col-sm-6 col-lg-4">
+                    <label asp-for="@Model.IdMontadora"> Montadora: </label>
+                    <select class="form-select" asp-for="@Model.IdMontadora"
+                        asp-items="@(IEnumerable<SelectListItem>)ViewBag.Montadoras">
+                    </select>
+
+                    <span asp-validation-for="@Model.IdMontadora" class="text-danger"></span>
+               </div>
+        </div>
+        <div class="row mb-1">
+             <div class="col">
+
+                <label asp-for="@Model.Foto" class="form-label" >Imagem:</label>
+                <input asp-for="@Model.Foto" class="form-control">
+
+            </div>
+        </div>
+
+        <div class="row m-5">
+             <div class="col">
+                <input type="submit" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+</div>

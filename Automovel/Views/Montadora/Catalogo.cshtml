@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MontadoraModel>
+
+@{
+    ViewBag.Subtitulo = "Catalogo";
+}
+
+<div class="text-center">
+    <h1>Catalogo de montadoras</h1>
+
+    <a asp-action="Cadastro">Cadastrar nova montadora</a>
+
+</div>
+
+<partial name="_Mensagem"></partial>
+
+@if (Model.Count() <= 0)
+{
+    <h1>Não possui montadores cadastradas até o momento!</h1>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var montadora in Model)
+            {
+                <tr>
+                    <td>@montadora.Name</td>
+                    <td>
+                        <a asp-action="Cadastro" asp-route-id="@montadora.IdMontadora"
+                    class="btn btn-sm btn-secondary">Alterar</a>
+                        <a asp-action="Excluir" asp-route-id="@montadora.IdMontadora" class="btn btn-sm btn-danger">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+}

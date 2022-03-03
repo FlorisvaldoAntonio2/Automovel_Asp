@@ -1,0 +1,85 @@
+﻿@model AutomovelModel;
+
+@{
+    ViewBag.Subtitulo = "Exibindo " + @Model.Modelo + " " + @Model.Ano;
+}
+
+<h1 class="text-primary">@ViewBag.Subtitulo</h1>
+<hr>
+<h4><span class="text-danger">@Model.Modelo</span></h4>
+<div class="row">
+    <div class="col-sm-12 col-lg-6">
+        @if (@Model.Foto != null || @Model.Foto == "")
+        {
+            <img src="~/Imagens/@Model.Foto" class="img-thumbnail" alt="Imagem Automovel">
+        }
+        else
+        {
+            <img src="~/Imagens/Default.png" class="img-thumbnail" alt="Imagem Automovel">
+        }
+    </div>
+
+    <div class="col-sm-12 col-lg-6">
+        <div class="accordion accordion-flush" id="accordionAutomovel">
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-Modelo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-Modelo" aria-expanded="false" aria-controls="flush-collapseOne">
+                <span class="text-danger text-wrap"><b>Modelo:</b></span>
+              </button>
+            </h2>
+            <div id="flush-Modelo" class="accordion-collapse collapse" aria-labelledby="flush-Modelo" data-bs-parent="#accordionAutomovel">
+              <div class="accordion-body"> @Model.Modelo </div>
+            </div>
+          </div>
+        
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-Ano">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-Ano" aria-expanded="false" aria-controls="flush-collapseOne">
+                <span class="text-danger text-wrap"><b>Ano:</b></span>
+              </button>
+            </h2>
+            <div id="flush-Ano" class="accordion-collapse collapse" aria-labelledby="flush-Ano" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"> @Model.Ano </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-Cor">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-Cor" aria-expanded="false" aria-controls="flush-collapseOne">
+                <span class="text-danger text-wrap"><b>Cor:</b></span>
+              </button>
+            </h2>
+            <div id="flush-Cor" class="accordion-collapse collapse" aria-labelledby="flush-Cor" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"> @Model.Cor </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-Quilometragem">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-Quilometragem" aria-expanded="false" aria-controls="flush-collapseOne">
+                <span class="text-danger text-wrap"><b>Quilometragem:</b></span>
+              </button>
+            </h2>
+            <div id="flush-Quilometragem" class="accordion-collapse collapse" aria-labelledby="flush-Quilometragem" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body"> @Model.Quilometragem </div>
+            </div>
+          </div>
+
+        </div>
+     </div>
+</div>
+
+
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Observações:
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body"> Aqui você terá acesso as observações sobre o automovel em exibição....EM BREVE!</div>
+    </div>
+  </div>
+</div>

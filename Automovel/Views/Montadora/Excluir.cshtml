@@ -1,0 +1,17 @@
+﻿@model MontadoraModel;
+
+@{
+    ViewBag.Subtitulo = "Excluir";
+}
+
+<h1 class="text-primary">@ViewBag.Subtitulo</h1>
+<hr>
+<h4>Deseja realmente excluir a Montadora <span class="text-danger">@Model.Name?</span></h4>
+
+<form asp-action="Excluir" method="post">
+    <input type="hidden" asp-for="@Model.IdMontadora">
+    
+    <a asp-action="Index" class="btn btn-success">Não</a>
+    <button class="btn btn-danger" type="submit">Sim</button>
+    
+</form>
